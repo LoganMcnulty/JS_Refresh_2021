@@ -1,0 +1,90 @@
+:root {
+    --blue: #0c3559;
+    --darkblue: #092640;
+    --seablue: #687b8c;
+    --lightseablue: #aab9bf;
+    --light: #f2f2f2;
+    --stadiumRed: #8C2D31;
+
+  }
+  /* The sidebar menu */
+  .sidenavL {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+
+.sidenavR {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+
+
+  /* The navigation menu links */
+  .sidenavR a, .sidenavL a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Style page content */
+  .main {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  ::selection {
+    color: var(--brown);
+    background-color: var(--light);
+  }
+  /* Add your custom class style definitions here */
+  /* HINT: Apply CSS variables using `var(--brown)` syntax as your property value */
+
+  .custom-jumbotron {
+    /* background:url('https://clubsolaris.com/imgs/tips-to-take-care-of-the-beach-during-your-vacations/beach-sea-cancun-sun.png');
+    background-position: center; 
+    background-repeat: no-repeat; */
+    background-color: var(--lightseablue);
+    margin:auto;
+    margin-top:1%;
+  }
+
+  .custom-h2{
+      font-weight:bold;
+  }
+  
+  .custom-btn {
+    background-color: var(--light);
+    color: var(--blue);
+  }
+  
+  .custom-btn:hover {
+    background-color: var(--darkblue);
+    color: var(--light);
+  }
+  

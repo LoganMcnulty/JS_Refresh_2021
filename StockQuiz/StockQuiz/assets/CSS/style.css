@@ -17,7 +17,7 @@ body {
     background-size: 80%; /* Resize the background image to cover the entire container */
   }
   
-header, #qContainer, #finalScore, #nameForm {
+header, #qContainer, #finalScore, #nameForm{
     position:relative;
     overflow:auto;
     font-size: 200%;

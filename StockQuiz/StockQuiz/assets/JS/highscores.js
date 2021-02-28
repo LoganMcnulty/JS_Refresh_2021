@@ -25,8 +25,8 @@ function bubbleSort(arr, compare = defaultCompare) {
     const { length } = arr;
     for (let i = 0; i < length; i++) {
         for (let j = 0; j < length - 1 - i; j++) { // refer to note below
-            if (compare(arr[j].score, arr[j - 1].score) === Compare.BIGGER_THAN) {
-                swap(arr, j, j - 1);
+            if (compare(arr[j].score, arr[j + 1].score) === Compare.LESS_THAN) {
+                swap(arr, j, j + 1);
             }
         }
     }
@@ -36,18 +36,20 @@ function bubbleSort(arr, compare = defaultCompare) {
 
 var newHighScores = bubbleSort(storedHighScores, compare = defaultCompare)
 console.log(newHighScores)
-//   // Render a new li for each todo
-//   for (var i = 0; i < storedHighScores.length; i++) {
-//     console.log(storedHighScores[i])
-//     var todo = todos[i];
 
-//     var li = document.createElement("li");
-//     li.textContent = todo;
-//     li.setAttribute("data-index", i);
+  // Render a new li for each todo
+  var scoreContainer = document.createElement("ul")
+  scoreContainer.setAttribute("id", 'finalScore');
 
-//     var button = document.createElement("button");
-//     button.textContent = "Complete ✔️";
+  for (var i = 0; i < storedHighScores.length; i++) {
+    console.log(storedHighScores[i])
+    var li = document.createElement("li");
+    li.textContent = storedHighScores[i].user + ': ' + storedHighScores[i].score;
+    li.setAttribute("data-index", i);
+    li.setAttribute("style", "list-style-type: none, ");
 
-//     li.appendChild(button);
-//     todoList.appendChild(li);
-//   }
+
+    scoreContainer.appendChild(li);
+  }
+
+  container.appendChild(scoreContainer);

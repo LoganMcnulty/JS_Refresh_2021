@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://kit.fontawesome.com/66fb9cbaef.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+
+    <title>Extending Bootstrap</title>
+</head>
+
+<body class = 'bg-dark'>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style='z-index:5'>
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+  <section class="jumbotron jumbotron-fluid custom-jumbotron p-4 rounded col-6">
+    <div class="container text-dark">
+      <div class="row">
+        <div class="col-12 col-md-12 col-XL-12">
+
+
+            <h1 class='text-center'>
+                Welcome to the Best Planner!
+            </h1>
+
+            <div class="row">
+                <div class="col-md-12 bs-linebreak">
+                    <hr style="width:80%; height:3px">
+                </div>
+            </div>
+            <h2 class="lead custom-h2 timer text-center"></h2>
+
+        </div>
+        </div>
+      </div>
+    </div>
+
+    </section>
+
+<main class="container bg-light rounded p-2 my-3">
+    <div class='row justify-content-center'>
+        <div class="card col-3" style='background-color: transparent; border:transparent'>
+            <div class="card-body  bg-dark text-light">
+                <p class="card-text">Add to the planner using the criteria below.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Project Name</li>
+                <li class="list-group-item">Project Type</li>
+                <li class="list-group-item">Due Date</li>
+                <li class="list-group-item">Hourly Wage</li>
+                
+            
+            </ul>
+            <div class="card-body bg-dark">
+                <div class="row justify-content-center">
+                    <button type="button" class="btn btn-light mt-2 btn-md mr-0 " data-toggle="modal" data-target="#projectModal">
+                    Add a project 
+                    <i class="fas fa-meteor" style='color:red'></i>
+                    </button>
+                </div>
+
+                <div class="modal fade text-dark" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectModalLabel" aria-hidden="true" style='overflow: auto;'>
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+
+                            <div class="modal-header  mx-3" style='border:transparent'>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <form id="projectForm">
+                                <div class="form-group mx-3">
+                                    <label for="projectName">Project Name</label>
+                                    <input class="form-control" id='projectName' type="text" placeholder="Ex: Local Gym Webpage">
+                                </div>
+
+                                <div class="form-group mx-3">
+                                    <label for="projectType">Project Type</label>
+                                    <select class="form-control" id='projectType'>
+                                        <option>Web design</option>
+                                        <option>Gaming</option>
+                                        <option>DB Management</option>
+                                        <option>Data Analysis</option>
+                                        <option>Algorithms</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group mx-3">
+                                    <label for="projectRate">Hourly Rate ($)</label>
+                                    <input class="form-control" id="projectRate" type="text"/>
+                                </div>
+
+                                <div class="form-group mx-3">
+                                    <label for="projectDate">Date: </label>
+                                    <div class="col-sm-8">
+                                      <input type="text" class="form-control" id="datepicker" autocomplete="off" />
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer" style='border:transparent'>
+                                    <button type="submit" value="Submit" class="btn btn-dark mt-2 btn-md mr-0 projectSubmit">
+                                    Add project 
+                                    <i class="fas fa-meteor" style='color:red'></i>
+                                    </button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-9">
+            <table class="table table-bordered table-dark">
+                <thead>
+                  <tr>
+                <th scope="col">Project Name</th>
+                <th scope="col">Project Type</th>
+                <th scope="col">Hourly Rate ($)</th>
+                <th scope="col">Due Date</th>
+                <th scope="col">Days Until Due Date</th>
+                <th scope="col">Potential Total Earnings ($)</th>
+                <th scope="col" class="p-3"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</main>
+
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<script src="./assets/js/script.js"></script>
+
+
+</html>

@@ -2,9 +2,6 @@ var headerEl = document.getElementById('header');
 var container = document.getElementById('container');
 var startButton = document.querySelector('.start-button')
 
-var highScores = [];
-
-
 var numCorrect = 0
 var numAnswered = 0
 const numQuestions = questions.length
@@ -204,12 +201,14 @@ function nameInput(){
   }
 
   var storedHighScores = JSON.parse(localStorage.getItem("StockScores"));
+  var highScores = [];
 
   // If todos were retrieved from localStorage, update the todos array to it
   if (storedHighScores !== null) {
     highScores = storedHighScores;
   }
-
+  
+  console.log(highScores)
   highScores.push(newScore)
   localStorage.setItem("StockScores", JSON.stringify(highScores))
   nameForm.innerHTML = "";

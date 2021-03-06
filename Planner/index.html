@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/66fb9cbaef.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
 
-    <title>Extending Bootstrap</title>
+    <title>Simple Planner</title>
 </head>
 
 <body class = 'bg-dark'>
@@ -40,23 +40,20 @@
         </div>
     </nav>
 
-  <section class="jumbotron jumbotron-fluid custom-jumbotron p-4 rounded col-6">
+  <section class="jumbotron col-xl-6 col-md-6 text-center jumbotron-fluid custom-jumbotron p-4 rounded">
     <div class="container text-dark">
       <div class="row">
-        <div class="col-12 col-md-12 col-XL-12">
-
-
+        <div class='col-12'>
             <h1 class='text-center'>
-                Welcome to the Best Planner!
+                Simple Planner          <i class="fas fa-check"></i>
             </h1>
 
             <div class="row">
-                <div class="col-md-12 bs-linebreak">
+                <div class="col-12 bs-linebreak">
                     <hr style="width:80%; height:3px">
                 </div>
             </div>
             <h2 class="lead custom-h2 timer text-center"></h2>
-
         </div>
         </div>
       </div>
@@ -66,18 +63,21 @@
 
 <main class="container bg-light rounded p-2 my-3">
     <div class='row justify-content-center'>
-        <div class="card col-3" style='background-color: transparent; border:transparent'>
-            <div class="card-body  bg-dark text-light">
-                <p class="card-text">Add to the planner using the criteria below.</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Project Name</li>
-                <li class="list-group-item">Project Type</li>
-                <li class="list-group-item">Due Date</li>
-                <li class="list-group-item">Hourly Wage</li>
+        <div class="card col-xl-3 col-sm-12" style='background-color: transparent; border:transparent'>
+            <div class="show-mobile">
+                <div class="card-body  bg-dark text-light show-mobile">
+                    <p class="card-text">Add to the planner using the criteria below.</p>
+                </div>
+                <ul class="list-group list-group-flush ">
+                    <li class="list-group-item">Project Name</li>
+                    <li class="list-group-item">Project Type</li>
+                    <li class="list-group-item">Due Date</li>
+                    <li class="list-group-item">Hourly Wage</li>
+                    
                 
-            
-            </ul>
+                </ul>
+            </div>
+ 
             <div class="card-body bg-dark">
                 <div class="row justify-content-center">
                     <button type="button" class="btn btn-light mt-2 btn-md mr-0 " data-toggle="modal" data-target="#projectModal">
@@ -99,12 +99,13 @@
                             <form id="projectForm">
                                 <div class="form-group mx-3">
                                     <label for="projectName">Project Name</label>
-                                    <input class="form-control" id='projectName' type="text" placeholder="Ex: Local Gym Webpage">
+                                    <input class="form-control" id='projectName' type="text" placeholder="Ex: Local Gym Webpage" required>
                                 </div>
 
                                 <div class="form-group mx-3">
                                     <label for="projectType">Project Type</label>
-                                    <select class="form-control" id='projectType'>
+                                    <select class="form-control" id='projectType' required>
+                                        <option value="" selected disabled>Please select</option>
                                         <option>Web design</option>
                                         <option>Gaming</option>
                                         <option>DB Management</option>
@@ -115,13 +116,13 @@
 
                                 <div class="form-group mx-3">
                                     <label for="projectRate">Hourly Rate ($)</label>
-                                    <input class="form-control" id="projectRate" type="text"/>
+                                    <input class="form-control number-input md-number-input" id="projectRate" type="number" min="0" placeholder="$" required/>
                                 </div>
 
                                 <div class="form-group mx-3">
                                     <label for="projectDate">Date: </label>
                                     <div class="col-sm-8">
-                                      <input type="text" class="form-control" id="datepicker" autocomplete="off" />
+                                      <input type="text" class="form-control" id="projectDate" autocomplete="off" required/>
                                     </div>
                                 </div>
 
@@ -138,28 +139,19 @@
                 </div>
             </div>
         </div>
-        <div class="col-9">
-            <table class="table table-bordered table-dark">
+        <div class="col-xl-9 col-sm-12 table-responsive">
+            <table class="table table-bordered table-dark col-12">
                 <thead>
-                  <tr>
-                <th scope="col">Project Name</th>
-                <th scope="col">Project Type</th>
-                <th scope="col">Hourly Rate ($)</th>
-                <th scope="col">Due Date</th>
-                <th scope="col">Days Until Due Date</th>
-                <th scope="col">Potential Total Earnings ($)</th>
-                <th scope="col" class="p-3"></th>
-                  </tr>
+                    <th scope="col">Project Name</th>
+                    <th scope="col">Project Type</th>
+                    <th scope="col">Rate ($/hr)</th>
+                    <th scope="col">Due Dt.</th>
+                    <th scope="col">Days Until Due</th>
+                    <th scope="col">Potential Earnings ($ 4hr/day)</th>
+                    <th scope="col" class="p-3"></th>
                 </thead>
-                <tbody>
+                <tbody id='projectTable'>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
 
                   </tr>
                 </tbody>

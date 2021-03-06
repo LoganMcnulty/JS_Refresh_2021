@@ -14,6 +14,9 @@
     padding: 0px 10px;
   }
   
+  /* #styleForm{
+    background:var(--stadiumRed);
+  } */
  
   .custom-jumbotron {
     /* background:url('https://clubsolaris.com/imgs/tips-to-take-care-of-the-beach-during-your-vacations/beach-sea-cancun-sun.png');
@@ -59,4 +62,3 @@
       margin: 0, 5%
     }
   }
- 

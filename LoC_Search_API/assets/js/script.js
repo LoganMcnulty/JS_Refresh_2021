@@ -32,11 +32,16 @@ var hitLOC_API = function(search){
   paramTwo = search.string
   paramThree = search.sortBy
 
+  if (paramOne === 'film-and-videos'){
+    paramOne = 'film%2Dand%2Dvideos'
+  }
+
   apiURL = 'https://www.loc.gov/' + paramOne + '/?q=' + paramTwo + '&sb=' + paramThree 
 
   if (paramOne === 'websites'){
     apiURL += '&sp=1'
   }
+
   apiURL += '&fo=json'
   console.log(apiURL)
   
@@ -67,13 +72,18 @@ function cleanSearch(search){
 
   console.log(search)
 
-  if (search.contentType == 'Maps' || 'Audio' || 'Photos' || 'Manuscripts' || 'Newspapers' || 'Websites'){
+  if (search.contentType === 'Maps' ||
+  search.contentType === 'Audio' ||
+  search.contentType === 'Photos' ||
+  search.contentType === 'Manuscripts' ||
+  search.contentType === 'Newspapers' ||
+  search.contentType === 'Websites'){
     search.contentType = search.contentType.toLowerCase()
   }
-  else if (search.contentType == 'Film and Videos'){
+  else if (search.contentType === 'Film and Videos'){
     search.contentType = 'film-and-videos'
   }
-  else if (search.contentType == 'Notated Music'){
+  else if (search.contentType === 'Notated Music'){
     search.contentType = 'notated-music'
   }
   else{
@@ -93,7 +103,7 @@ function cleanSearch(search){
     search.sortBy = 'title_s_desc'
   }
   else{
-    console.log('Something went wrong')
+    console.log('Something went wrong sort by')
   }
 
   return search
@@ -104,7 +114,6 @@ function projectData(data, search){
   resultsContainer.empty()
   console.log(data)
   console.log(search)
-  console.log(data.results.length)
 
   for(i=0; i < data.results.length; i++){
     contentURL = data.results[i].url
@@ -151,8 +160,10 @@ function projectData(data, search){
             // }
           }
 
-  else if (search.contentType === 'films-and-videos'){
+  else if (search.contentType === 'film-and-videos'){
     console.log(data.results[i])
+    description = data.results[i].description
+    resultsContainer.append(createTextCard(description, contentURL, title))
     // for(i=0; i < data.results.length; i++){
     //   title = data.results[i].title
     //   description = data.results[i].description

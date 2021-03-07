@@ -19,41 +19,20 @@
   } */
  
   .custom-jumbotron {
-    /* background:url('https://clubsolaris.com/imgs/tips-to-take-care-of-the-beach-during-your-vacations/beach-sea-cancun-sun.png');
-    background-position: center; 
-    background-repeat: no-repeat; */
     background-color: var(--lightseablue);
     margin:auto;
     margin-top:1%;
-  }
-
-  .custom-h2{
-      font-weight:bold;
-  }
-
-.customRow{
-    background-color: var(--lightseablue);
-  }
-
-  .customRow:hover{
-    cursor:pointer
   }
 
   @media screen and (max-width: 1200px) {
     .modal{
       width:70%
     }
-    table{
-      margin-top:2%
-    }
   }
 
   @media screen and (max-width: 820px) {
     .modal{
       width:70%
-    }
-    table{
-      margin-top:2%
     }
     .show-mobile {
       display: none;
@@ -70,4 +49,8 @@
   @include media-breakpoint-only(xl) {
     column-count: 5;
   }
+}
+
+#imageModal:hover{
+  transform: scale(1.5)
 }
